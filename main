@@ -1,1 +1,17 @@
+import os
 
+# Create the directory
+os.makedirs('data', exist_ok=True)
+
+# Generate 50 sample files
+for i in range(1, 51):
+    filename = f'data/doc{i:02d}.txt' # doc01, doc02...
+    with open(filename, 'w') as f:
+        content = f"This is document number {i}. "
+        if i in [1, 4, 15]:
+            content += "The computer is a powerful tool for processing data."
+        else:
+            content += "Searching for information requires efficient indexing."
+        f.write(content)
+
+print("✅ Folder 'data' created with 50 .txt files.")
